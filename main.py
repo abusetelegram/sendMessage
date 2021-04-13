@@ -30,7 +30,14 @@ print("Assoc Group info: {}[{}]".format(assoc.title, assoc.id))
 
 client(functions.messages.SendMessageRequest(
     peer=assoc,
-    message="You don't need to join group to send message in discussion, so do replies.",
+    message="You don't need to join group to send message in discussion if you see this line.",
+    no_webpage=True,
+))
+
+client(functions.messages.SendMessageRequest(
+    peer=assoc,
+    reply_to_msg_id=msg_id,
+    message="You don't need to join group to replies if you see this line.",
     no_webpage=True,
 ))
 
